@@ -19,7 +19,7 @@
               <div class="col-12">
                 <div class="card">
                   <div class="card-header">
-                    <h4>Table User</h4>
+                    <h4>Table Users</h4>
                     <div class="card-header-action">
                       <form>
                         <div class="input-group">
@@ -51,8 +51,8 @@
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
                             <td>
-                                <a href="#" class="btn btn-warning">Edit</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
+                                <a href="{{route('user.edit', $user->id)}}" class="btn btn-warning">Edit</a>
+                                <a href="{{route('user.delete', $user->id)}}" id="delete" class="btn btn-danger">Delete</a>
                             </td>
                           </tr>
                         @endforeach
