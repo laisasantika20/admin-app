@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\backend\UserController;
+use App\Http\Controllers\BarangController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -41,4 +43,11 @@ Route::prefix('users')->group(function(){
     Route::get('/edit/{id}',[UserController::class, 'UserEdit'])->name('user.edit');
     Route::post('/update/{id}',[UserController::class, 'UserUpdate'])->name('users.update');
     Route::get('/delete/{id}',[UserController::class, 'UserDelete'])->name('user.delete');
+});
+
+//prefix barang
+Route::prefix('barangs')->group(function(){
+    Route::get('/view',[BarangController::class, 'BarangView'])->name('barang.view');
+    Route::get('/add',[BarangController::class, 'BarangAdd'])->name('barang.add');
+    Route::post('/store',[BarangController::class, 'BarangStore'])->name('barangs.store');
 });
