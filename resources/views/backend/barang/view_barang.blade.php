@@ -51,8 +51,8 @@
                             <td>{{$barang->jumlah}}</td>
                             <td>{{$barang->harga}}</td>
                             <td>
-                                <a href="" class="btn btn-warning">Edit</a>
-                                <a href="" id="delete" class="btn btn-danger">Delete</a>
+                            <a href="{{route('barang.edit', $barang->id)}}" class="btn btn-warning">Edit</a>
+                                <a href="{{route('barang.delete', $barang->id)}}" id="delete" class="btn btn-danger">Delete</a>
                             </td>
                           </tr>
                         @endforeach

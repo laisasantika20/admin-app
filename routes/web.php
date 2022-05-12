@@ -50,4 +50,7 @@ Route::prefix('barangs')->group(function(){
     Route::get('/view',[BarangController::class, 'BarangView'])->name('barang.view');
     Route::get('/add',[BarangController::class, 'BarangAdd'])->name('barang.add');
     Route::post('/store',[BarangController::class, 'BarangStore'])->name('barangs.store');
+    Route::get('/edit/{id}',[BarangController::class, 'BarangEdit'])->name('barang.edit');
+    Route::post('/update/{id}',[BarangController::class, 'BarangUpdate'])->name('barangs.update');
+    Route::get('/delete/{id}',[BarangController::class, 'BarangDelete'])->name('barang.delete');
 });
