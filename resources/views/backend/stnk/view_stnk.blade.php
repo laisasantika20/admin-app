@@ -6,10 +6,10 @@
       <div class="main-content">
         <section class="section">
           <div class="section-header">
-            <h1>Data Barang</h1>
+            <h1>Data STNK</h1>
               <div class="section-header-breadcrumb">
               <div class="buttons">
-                    <a href="{{route('barang.add')}}" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i>Add Barang</a>
+                    <a href="{{route('stnk.add')}}" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i>Add Data</a>
               </div>
             </div>
           </div>
@@ -19,7 +19,7 @@
               <div class="col-12">
                 <div class="card">
                   <div class="card-header">
-                    <h4>Table Barang</h4>
+                    <h4>Table STNK</h4>
                     <div class="card-header-action">
                       <form>
                         <div class="input-group">
@@ -37,22 +37,22 @@
                         <thead>
                           <tr>
                             <th>Id</th>
-                            <th>Nama</th>
-                            <th>Jumlah</th>
+                            <th>No Plat</th>
+                            <th>Pemilik</th>
                             <th>Harga</th>
                             <th>Action</th>
                           </tr>
                         </thead>
                         <tbody>
-                        @foreach($allDataBarang as $key => $barang)
+                        @foreach($allDataStnk as $key => $stnk)
                           <tr>
                             <td>{{$key+1}}</td>
-                            <td>{{$barang->nama}}</td>
-                            <td>{{$barang->jumlah}}</td>
-                            <td>{{$barang->harga}}</td>
+                            <td>{{$stnk->noplat}}</td>
+                            <td>{{$stnk->pemilik}}</td>
+                            <td>{{$stnk->harga}}</td>
                             <td>
-                            <a href="{{route('barang.edit', $barang->id)}}" class="btn btn-warning">Edit</a>
-                            <a href="{{route('barang.delete', $barang->id)}}" id="delete" class="btn btn-danger">Delete</a>
+                            <a href="{{route('stnk.edit', $stnk->id)}}" class="btn btn-warning">Edit</a>
+                            <a href="{{route('stnk.delete', $stnk->id)}}" id="delete" class="btn btn-danger">Delete</a>
                             </td>
                           </tr>
                         @endforeach

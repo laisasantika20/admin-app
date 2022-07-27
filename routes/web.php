@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\StnkController;
 
 
 /*
@@ -53,4 +54,13 @@ Route::prefix('barangs')->group(function(){
     Route::get('/edit/{id}',[BarangController::class, 'BarangEdit'])->name('barang.edit');
     Route::post('/update/{id}',[BarangController::class, 'BarangUpdate'])->name('barangs.update');
     Route::get('/delete/{id}',[BarangController::class, 'BarangDelete'])->name('barang.delete');
+});
+
+Route::prefix('stnks')->group(function(){
+    Route::get('/view',[StnkController::class, 'StnkView'])->name('stnk.view');
+    Route::get('/add',[StnkController::class, 'StnkAdd'])->name('stnk.add');
+    Route::post('/store',[StnkController::class, 'StnkStore'])->name('stnks.store');
+    Route::get('/edit/{id}',[StnkController::class, 'StnkEdit'])->name('stnk.edit');
+    Route::post('/update/{id}',[StnkController::class, 'StnkUpdate'])->name('stnks.update');
+    Route::get('/delete/{id}',[StnkController::class, 'StnkDelete'])->name('stnk.delete');
 });

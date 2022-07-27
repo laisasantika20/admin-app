@@ -5,9 +5,14 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Passport\HasApiTokens;
 
 class UserController extends Controller
 {
+    use HasApiTokens, HasFactory, Notifiable;
     //
     public function UserView(){
         // $allDataUser=User::all();
