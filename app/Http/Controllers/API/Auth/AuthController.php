@@ -11,7 +11,7 @@ class AuthController extends Controller
     public function register(Request $request){
         $validateData = $request->validate([
             'name'=> 'required|max:25',
-            'email' => 'email| required | unique:users',
+            'email' => 'email | required | unique:users',
             'password' => 'required | confirmed',
         ]);
 
@@ -19,7 +19,7 @@ class AuthController extends Controller
         $user = new User([
             'name' => $request->name,
             'email' => $request->email,
-            'password'=> $request->bcrypt($request->password),
+            'password'=> bcrypt($request->password),
         ]);
 
         $user->save;
@@ -29,7 +29,7 @@ class AuthController extends Controller
     
     public function login(Request $request){
         $validateData = $request->validate([
-            'email' => 'email| required | unique:users',
+            'email' => 'email | required | unique:users',
             'password' => 'required | confirmed',
         ]);
 
@@ -45,7 +45,7 @@ class AuthController extends Controller
         $user = $request->user();
         $tokenResult =$user->createToken('AccessToken');
         $token = $tokenResult->token;
-        $token->save;
+        $token->save();
 
         return response()->json([
             'access_token' => $tokenResult->accessToken,
