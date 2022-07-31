@@ -18,3 +18,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::post('register','API\Auth\AuthController@register');
+Route::post('login','API\Auth\AuthController@login');
