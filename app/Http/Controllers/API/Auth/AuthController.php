@@ -4,9 +4,11 @@ namespace App\Http\Controllers\API\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class AuthController extends Controller
 {
+    
     //
     public function register(Request $request){
         $validateData = $request->validate([
@@ -19,10 +21,11 @@ class AuthController extends Controller
         $user = new User([
             'name' => $request->name,
             'email' => $request->email,
+            'usertype'=>$request->selectUser,
             'password'=> bcrypt($request->password),
         ]);
 
-        $user->save;
+        $user->save();
 
         return response()->json($user, 201);
     }
@@ -43,6 +46,7 @@ class AuthController extends Controller
         }
 
         $user = $request->user();
+
         $tokenResult =$user->createToken('AccessToken');
         $token = $tokenResult->token;
         $token->save();
